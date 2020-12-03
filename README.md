@@ -48,4 +48,85 @@ If you don't know already GraphQL is a lot different from SQL. Is it better? Tha
 
 ## Example Queries
 
+Here's a simple query to start off with:
 
+File: **`/queries/user-lifetime-data.graphql`**
+
+```
+# Get Contribution Years and Lifetime Data
+# 
+# The values returned by this query represent the totals for 
+# the lifetime of the user. 
+{
+  user(login: "jxmot") {
+    name
+    # Let's retreive a collection of the user's repositories
+    contributionsCollection {
+      # will be 'true' if they've had any contributions
+      hasAnyContributions
+      # The years (2020, 2019, etc) that the use has been contributing
+      contributionYears
+    }
+    # the total number of repositories owned by the user, no forks are counted
+    repositories(first: 100, isFork: false, ownerAffiliations: OWNER) {
+      totalCount
+    }
+    # the total number of repositories NOT owned by the user that they contributed to
+    repositoriesContributedTo(first: 100) {
+      totalCount
+    }
+    # the total number of pull requests created by the user
+    pullRequests(first: 1) {
+      totalCount
+    }
+    # the total number of issues created by the user
+    issues(first: 1) {
+      totalCount
+    }
+    # the total number of followers that the user has
+    followers {
+      totalCount
+    }
+  }
+}
+
+```
+
+And here is the result of the query:
+
+*Please note that this query uses my personal access token. If you run the same query it will return different values.*
+
+```
+{
+  "data": {
+    "user": {
+      "name": "J.Motyl",
+      "contributionsCollection": {
+        "hasAnyContributions": true,
+        "contributionYears": [
+          2020,
+          2019,
+          2018,
+          2017,
+          2016
+        ]
+      },
+      "repositories": {
+        "totalCount": 71
+      },
+      "repositoriesContributedTo": {
+        "totalCount": 4
+      },
+      "pullRequests": {
+        "totalCount": 112
+      },
+      "issues": {
+        "totalCount": 166
+      },
+      "followers": {
+        "totalCount": 13
+      }
+    }
+  }
+}
+```
