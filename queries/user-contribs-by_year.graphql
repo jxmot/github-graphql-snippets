@@ -11,6 +11,8 @@
     login
     # specify the time span your querying, only data found in that span will be returned.
     contributionsCollection(from: "2020-01-01T06:00:00Z", to: "2020-12-31T05:59:59Z") {
+# NOTE: Here are some other queries to try, each one spans a year that was 
+# retrieved with user-lifetime-data.graphql
 #    contributionsCollection(from: "2019-01-01T06:00:00Z", to: "2019-12-31T05:59:59Z") {
 #    contributionsCollection(from: "2018-01-01T06:00:00Z", to: "2018-12-31T05:59:59Z") {
 #    contributionsCollection(from: "2017-01-01T06:00:00Z", to: "2017-12-31T05:59:59Z") {
