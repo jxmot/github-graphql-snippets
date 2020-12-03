@@ -19,11 +19,11 @@ I've been using the [GraphiQL](<https://github.com/skevy/graphiql-app>) applicat
 You'll need the following:
 
 * A GitHub Personal Access Token
-* The API URL - https://api.github.com/graphql
+* The API Endpoint - https://api.github.com/graphql
 
 The *GitHub Personal Access Token* is obtained through your GitHub account. They can be created in the `Settings->Developer->Personal access tokens` menu.
 
-Enable the following options:
+Enable the following options for your new **GitHub Personal Access Token**:
 
 * `read:gpg_key`
 * `read:org`
@@ -31,6 +31,27 @@ Enable the following options:
 * `read:repo_hook`
 * `repo`
 * `user`
+
+Run the GraphiQL application and:
+
+1) Enter the endpoint
+2) Select **`POST`** as the method
+3) Click the "Edit HTTP Header" button and a dialog box will appear...
+
+<p align="center">
+  <img src="./mdimg/ss_1.png" alt="" txt="" width="80%">
+</p>
+
+1) Click the "+ Add header" button
+2) Under "Header name" enter **`Authorization`**
+3) Under "Header value" enter your personal access token, precede it with the word **`Bearer`**. It will look like this: `Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` Where `xxx...` is your personal access token.
+4) Click anywhere outside of the dialog and it will close.
+
+<p align="center">
+  <img src="./mdimg/ss_2.png" alt="" txt="" width="80%">
+</p>
+
+Your ready for your first query!
 
 ### Application Quirks
 
