@@ -67,7 +67,7 @@ If you don't know already GraphQL is a lot different from SQL. Is it better? Tha
 * The *structure* of a query is better than SQL. It's a little easier to understand complex queries over SQL.
 * Did the implementer document the schema and fields well enough? In the case of the GitHub API it is.
 
-## Example Queries
+## Example Query
 
 Here's a simple query to start off with:
 
@@ -151,3 +151,14 @@ And here is the result of the query:
   }
 }
 ```
+
+## Example Query Files
+
+* **`/queries/user-lifetime-data.graphql`** : shown above
+* **`/queries/user-lifetime-data-all.graphql`** : based on the previous query, but this one also retrieves the total number of forks, stars, and watchers for each repo
+* **`/queries/user-contribs-by_year.graphql`** : retrieves data for the time span specified, a maximum of one year.
+
+## GitHub V4 API Quirks
+
+* *Lifetime* data does not include any means for obtaining the **lifetime total of commits**. 
+* **TBD**
