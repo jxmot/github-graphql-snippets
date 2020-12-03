@@ -1,0 +1,42 @@
+# Get Contribution Years and Lifetime Data
+# 
+# The values returned by this query represent the totals for 
+# the lifetime of the user. 
+{
+  user(login: "jxmot") {
+    name
+    login
+    contributionsCollection {
+      hasAnyContributions
+      contributionYears
+    }
+    repositoriesContributedTo(first: 100) {
+      totalCount
+      nodes {
+        name
+      }
+    }
+    pullRequests(first: 1) {
+      totalCount
+    }
+    issues(first: 1) {
+      totalCount
+    }
+    followers {
+      totalCount
+    }
+    # get the user's collection of repositories, and retrieve the 
+    # total number of forks, stars, and watchers for each repo
+    repositories(first: 100, isFork: false, ownerAffiliations: OWNER, orderBy: {direction: DESC, field: STARGAZERS}) {
+      totalCount
+      nodes {
+        forkCount
+        stargazerCount
+        # this does NOT have a separate "count" fields
+        watchers {
+          totalCount
+        }
+      }
+    }
+  }
+}

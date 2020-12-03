@@ -1,0 +1,33 @@
+# Get User Contributions by Year Span
+# 
+# The values returned by this query represent the totals for 
+# the span of one year for the user. 
+#
+# NOTE: There is a maximum span of 1 year, more than that will
+# return an error.
+{
+  user(login: "jxmot") {
+    name
+    login
+    # specify the time span your querying, only data found in that span will be returned.
+    contributionsCollection(from: "2020-01-01T06:00:00Z", to: "2020-12-31T05:59:59Z") {
+#    contributionsCollection(from: "2019-01-01T06:00:00Z", to: "2019-12-31T05:59:59Z") {
+#    contributionsCollection(from: "2018-01-01T06:00:00Z", to: "2018-12-31T05:59:59Z") {
+#    contributionsCollection(from: "2017-01-01T06:00:00Z", to: "2017-12-31T05:59:59Z") {
+#    contributionsCollection(from: "2016-01-01T06:00:00Z", to: "2016-12-31T05:59:59Z") {
+      startedAt
+      endedAt
+      # is there more activity predating the current query?, will be 'true' if there is
+      hasActivityInThePast
+      # total of commits created by the user for the specified time span
+      totalCommitContributions
+      restrictedContributionsCount
+      # the total number of pull requests created by the user for the specified time span
+      totalPullRequestContributions
+      # the total number of issues created by the user for the specified time span
+      totalIssueContributions
+      # the total number of repositories created by the user for the specified time span
+      totalRepositoryContributions
+    }
+  }
+}
