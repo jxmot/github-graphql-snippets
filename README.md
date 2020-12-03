@@ -160,5 +160,5 @@ And here is the result of the query:
 
 ## GitHub V4 API Quirks
 
-* *Lifetime* data does not include any means for obtaining the **lifetime total of commits**. 
+* *Lifetime* data **does not** include any means for obtaining the **lifetime total of commits**. This is frustrating because in order to obtain that value multiple calls to something like **`/queries/user-contribs-by_year.graphql`** must be made.
 * **TBD**

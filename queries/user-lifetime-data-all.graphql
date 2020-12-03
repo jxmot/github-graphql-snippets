@@ -29,6 +29,7 @@
     # total number of forks, stars, and watchers for each repo
     repositories(first: 100, isFork: false, ownerAffiliations: OWNER, orderBy: {direction: DESC, field: STARGAZERS}) {
       totalCount
+      # there are no fields for "commits", it's not available?
       nodes {
         forkCount
         stargazerCount
