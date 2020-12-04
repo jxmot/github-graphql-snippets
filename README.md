@@ -156,7 +156,8 @@ And here is the result of the query:
 
 * **`/queries/user-lifetime-data.graphql`** : shown above
 * **`/queries/user-lifetime-data-all.graphql`** : based on the previous query, but this one also retrieves the total number of forks, stars, and watchers for each repo
-* **`/queries/user-contribs-by_year.graphql`** : retrieves data for the time span specified, a maximum of one year.
+* **`/queries/user-contribs-by_year.graphql`** : retrieves data for the time span specified, a maximum of one year
+* **`/queries/user-repos-lang_stats.graphql`** : retrieves the user's repos and lists the languages that each contains
 
 ## GitHub V4 API Quirks
 
