@@ -13,11 +13,11 @@
       contributionYears
     }
     # the total number of repositories owned by the user, no forks are counted
-    repositories(first: 100, isFork: false, ownerAffiliations: OWNER) {
+    repositories(first: 1, isFork: false, ownerAffiliations: OWNER) {
       totalCount
     }
     # the total number of repositories NOT owned by the user that they contributed to
-    repositoriesContributedTo(first: 100) {
+    repositoriesContributedTo(first: 1) {
       totalCount
     }
     # the total number of pull requests created by the user
