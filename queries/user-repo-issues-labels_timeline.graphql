@@ -18,6 +18,7 @@
             # label operations made to this issue
             edges {
               node {
+                # this is necessary to identify which event was found
                 __typename
                 ... on LabeledEvent {
                   createdAt
