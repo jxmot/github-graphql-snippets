@@ -1,0 +1,27 @@
+# Create an issue in a specified repo.
+#
+# Use user-repos-name_id_priv.graphql to retreive a list of 
+# repositories and their id's.
+# 
+mutation($data:CreateIssueInput!) {
+  createIssue(input:$data) {
+    issue {
+      createdAt
+      id
+      title
+      number
+    }
+  }
+}
+
+## Variable(s): If using the GraphiQL app the following gets
+# placed in the "QUERY VARIABLES" pane without the "#" on 
+# each line.
+#{
+#  "data": {
+#    "repositoryId": "Your chosen repo ID",
+#    "title": "TEST 1 graphql",
+#    "body": "this is a test 1 of graphql issue creation.",
+#    "clientMutationId": null
+#  }
+#}
