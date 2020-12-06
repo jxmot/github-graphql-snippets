@@ -19,7 +19,7 @@ mutation($data:CreateIssueInput!) {
 # each line.
 #{
 #  "data": {
-#    "repositoryId": "Your chosen repo ID",
+#    "repositoryId": "Your chosen repo's ID",
 #    "title": "TEST 1 graphql",
 #    "body": "this is a test 1 of graphql issue creation.",
 #    "clientMutationId": null
