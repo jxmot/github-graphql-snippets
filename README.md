@@ -162,7 +162,7 @@ And here is the result of the query:
 * **`/queries/user-contribs-by_year.graphql`** : retrieves data for the time span specified, a maximum of one year
 * **`/queries/user-repos-lang_stats.graphql`** : retrieves the user's repos and lists the languages that each contains
 * **`/queries/user-repos-name_id_priv.graphql`** : retrieves the user's repos, and obtains the name, id, and privacy for each one found
-* **`/queries/user-repo-issues-labels_timeline.graphql`** : retrieves a user's specific repo, its issues and lists the label operations(*in a timeline*) for each issue.
+* **`/queries/user-repo-issues-open-labeling_timeline.graphql`** : retrieves a user's specific repo, its issues and lists the label operations(*in a timeline*) for each issue.
 
 ## Example Mutation
 
@@ -204,12 +204,10 @@ The data used by the mutation:
 ## Example Mutation Files
 
 * **`/queries/create-repo-issue.graphql`** : create an issue in a specified repository. a *repository ID* is required, IDs can be obtained with **`/queries/user-repos-name_id_priv.graphql`**
-* 
 
 ## GitHub V4 API Quirks
 
 * *Lifetime* data **does not** include any means for obtaining the **lifetime total of commits**. This is frustrating because in order to obtain that value multiple calls to something like **`/queries/user-contribs-by_year.graphql`** must be made.
 * The method to retrieve *counts* is inconsistent in some cases. For example, in `User.repositories.RepositoryConnection.nodes.Repository` you can directly get counts with `forkCount` and `stargazerCount`. But there is no access for a watcher count. Instead it's necessary to access `User.repositories.RepositoryConnection.nodes.Repository.watchers.totalCount`.
 * The value found in `User.ContributionsCollection.restrictedContributionsCount` will be 0 if you are querying your own account, and non-zero when querying a user that is sharing the private contributions.
-
 
