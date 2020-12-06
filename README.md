@@ -70,7 +70,7 @@ If you don't know already GraphQL is a lot different from SQL. Is it better? Tha
 * The *structure* of a query is better than SQL. It's a little easier to understand complex queries over SQL.
 * Did the implementer document the schema and fields well enough? In the case of the GitHub API it is.
 
-## Example Query
+### Example Query
 
 Here's a simple query to start off with:
 
@@ -155,7 +155,7 @@ And here is the result of the query:
 }
 ```
 
-## Example Query Files
+### Example Query Files
 
 * **`/queries/user-lifetime-data.graphql`** : shown above
 * **`/queries/user-lifetime-data-all.graphql`** : based on the previous query, but this one also retrieves the total number of forks, stars, and watchers for each repo
@@ -165,7 +165,11 @@ And here is the result of the query:
 * **`/queries/user-repo-issues-open-labeling_timeline.graphql`** : retrieves a user's specific repo, its issues and lists the label operations(*in a timeline*) for each issue.
 * **`/queries/user-repo-labels-all-usage.graphql`** : retrieves the labels from a repository and gets a count of pull requests and issues for each label.
 
-## Example Mutation
+## Mutations
+
+*Mutations* are the means to create or update things via the V4 API. 
+
+### Example Mutation
 
 Here's a simple mutation to start off with:
 
@@ -194,7 +198,7 @@ The data used by the mutation:
 ```
 {
   "data": {
-    "repositoryId": "Your chosen repo ID",
+    "repositoryId": "Your chosen repo's ID",
     "title": "TEST 1 graphql",
     "body": "this is a test 1 of graphql issue creation.",
     "clientMutationId": null
@@ -202,14 +206,24 @@ The data used by the mutation:
 }
 ```
 
-## Example Mutation Files
+### Example Mutation Files
 
-* **`/queries/create-repo-issue.graphql`** : create an issue in a specified repository. a *repository ID* is required, IDs can be obtained with **`/queries/user-repos-name_id_priv.graphql`**
+* **`/mutations/create-repo-issue.graphql`** : create an issue in a specified repository. A *repository ID* is required, IDs can be obtained with **`/queries/user-repos-name_id_priv.graphql`**
+* **`/mutations/create-repo-label.graphql`** : create a label in a specified repository. A *repository ID* is required, IDs can be obtained with **`/queries/user-repos-name_id_priv.graphql`**
 
 ## GitHub V4 API Quirks
 
 * *Lifetime* data **does not** include any means for obtaining the **lifetime total of commits**. This is frustrating because in order to obtain that value multiple calls to something like **`/queries/user-contribs-by_year.graphql`** must be made.
 * The method to retrieve *counts* is inconsistent in some cases. For example, in `User.repositories.RepositoryConnection.nodes.Repository` you can directly get counts with `forkCount` and `stargazerCount`. But there is no access for a watcher count. Instead it's necessary to access `User.repositories.RepositoryConnection.nodes.Repository.watchers.totalCount`.
 * The value found in `User.ContributionsCollection.restrictedContributionsCount` will be 0 if you are querying your own account, and non-zero when querying a user that is sharing the private contributions.
-* The API gives you ability to 
+* The API gives you ability to use many different *mutations*. But it won't allow the creation of labels. Issues, pull requests, and even new repositories are OK.
+  * A `createLabel` is documented at `https://docs.github.com/en/free-pro-team@latest/graphql/reference/mutations#createlabel`. But it does not show up in the contextual help in the GraphQL explorers.
+  * In order to successfully create a label you must edit the HTTP header and add `Accept:application/vnd.github.bane-preview+json`.
 
+## GraphQL Explorers, Which one to Use?
+
+There are a number of *GraphQL Explorers*. But I've been using the [GraphiQL](<https://github.com/skevy/graphiql-app>) application. One alternative is the [GitHub GraphQL Explorer](https://developer.github.com/v4/explorer/), which makes sense for this project. But it has a major shortcoming: You can't edit the HTTP header.
+
+This is important because in order to perform some operations (*like mutations on labels*) you must change the `Accept` portion of the HTTP header.
+
+I will update this section as I find alternatives to the quirky GrahpiQL application.
