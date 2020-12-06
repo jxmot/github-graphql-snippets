@@ -1,0 +1,26 @@
+# Get the labels from a repository and gets a count 
+# of pull requests and issues for each label.
+#
+{
+  repository(owner: "jxmot", name: "labelmgr-test") {
+    labels(first:100, orderBy:{field:NAME, direction:ASC}) {
+      # total quantity of labels in this repository
+      totalCount
+      # get all of the labels, and show some useful info
+      nodes {
+        name
+        id
+        color
+        description
+        # the quantity of issues using this label
+        issues(first:1) {
+          totalCount
+        }
+        # the quantity of pull requests using this label
+        pullRequests(first:1) {
+          totalCount
+        }
+      }
+    }
+  }
+}
