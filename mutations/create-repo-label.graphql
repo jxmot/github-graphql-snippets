@@ -1,0 +1,38 @@
+# Create a label in a specified repo.
+#
+# Use user-repos-name_id_priv.graphql to retreive a list of 
+# repositories and their id's.
+# 
+# NOTE: You MUST edit the HTTP header that is sent with the 
+# mutation. The GraphiQL application allows for that, but the
+# GitHub GraphQL Exporer does NOT!
+#
+# Add this to the header:
+#   Accept:application/vnd.github.bane-preview+json
+# 
+# Label information:
+#   https://docs.github.com/en/free-pro-team@latest/graphql/overview/schema-previews#labels-preview
+#
+mutation($label:CreateLabelInput!) {
+  createLabel(input:$label) {
+    label {
+      id
+      name
+      color
+      description
+      updatedAt
+    }
+  }
+}
+
+## Variable(s): If using the GraphiQL app the following gets
+# placed in the "QUERY VARIABLES" pane without the "#" on 
+# each line.
+#{
+#  "label": {
+#    "repositoryId": "Your chosen repo's ID",
+#    "name": "GraphQL Label",
+#    "color": "e4e669",
+#    "description": "GraphQL was used to create this label"
+#  }
+#}
