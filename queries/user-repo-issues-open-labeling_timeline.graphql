@@ -1,0 +1,42 @@
+# Get the issues from a repository and get a timeline 
+# of labeling events.
+#
+{
+  repository(owner: "jxmot", name: "labelmgr-test") {
+    # searching open issues
+    issues(first: 100, states: OPEN) {
+      totalCount
+      edges {
+        # issues
+        node {
+          title
+          url
+          number
+          createdAt
+          timelineItems(last: 100, itemTypes: [LABELED_EVENT,UNLABELED_EVENT]) {
+            totalCount
+            # label operations made to this issue
+            edges {
+              node {
+                # this is necessary to identify which event was found
+                __typename
+                ... on LabeledEvent {
+                  createdAt
+                  label {
+                    name
+                  }
+                }
+                ... on UnlabeledEvent {
+                  createdAt
+                  label {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
