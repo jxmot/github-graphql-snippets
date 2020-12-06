@@ -15,7 +15,9 @@ As a result of "trying it out" I created some queries in order to understand the
 
 ## Tools
 
-I've been using the [GraphiQL](<https://github.com/skevy/graphiql-app>) application to test the queries that are provided here. It's not the *best* application, and the last release was two years old. But it is linked to in the GitHup API documentation.
+I've been using the [GraphiQL](<https://github.com/skevy/graphiql-app>) application to test the queries that are provided here. It's not the *best* application, and the last release was two years old. But it is linked to in the GitHup API documentation. 
+
+If you're going to try a different application be sure that you can edit the HTTP headers. It will be necessary for *mutations* and perhaps some queries depending on their *preview*.
 
 ### Set Up
 
