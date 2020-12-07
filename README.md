@@ -21,7 +21,7 @@ If you're going to try a different application be sure that you can edit the HTT
 
 Another tool that works well is [Postman](https://www.postman.com/). It can send requests for queries and mutations. And in regards to the HTTP header it's much easier to edit. Each request can have its own header unlike the GraphiQL application.
 
-### Set Up
+### GraphiQL Set Up
 
 You'll need the following:
 
@@ -59,6 +59,24 @@ Run the GraphiQL application and:
 </p>
 
 Your ready for your first query!
+
+### Postman Notes
+
+To use Postman to send GraphQL you will need the query or mutation formatted so that it will POST correctly. To get the correct formatting start by creating your GraphQL in the GraphiQL application. Then go to the application's "File" menu and click on "Export Query(to clipboard)". 
+
+Paste the clipboard into a Postman *tab* under "Body":
+
+<p align="center">
+  <img src="./mdimg/pm_body.png" alt="" txt="" width="80%">
+</p>
+
+Then set up the HTTP header:
+
+<p align="center">
+  <img src="./mdimg/pm_header.png" alt="" txt="" width="80%">
+</p>
+
+Then click "Send" and you should get a response. If the response is an error then either the "Body" is incorrect or the header is wrong. Make sure you placed your GitHub *personal access token* as "Authorization" in the header.
 
 ### Application Quirks
 
