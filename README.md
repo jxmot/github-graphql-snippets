@@ -1,9 +1,6 @@
 # github-graphql-snippets
 
-A collection of *working* GraphQL queries that access the GitHub API V4.
-
-<h1 align="center">Work In Progress!</h1>
-<h4 align="center">2020-12-04</h4>
+A collection of *working* GraphQL *queries* and *mutations* that access the GitHub API V4.
 
 ## How I Got Here...
 
