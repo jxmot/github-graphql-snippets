@@ -1,4 +1,5 @@
-# Create a label in a specified repo.
+# Create a label in a specified repo for the currently
+# validated user.
 #
 # Use user-repos-name_id_priv.graphql to retreive a list of 
 # repositories and their id's.
