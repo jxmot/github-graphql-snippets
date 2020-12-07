@@ -36,3 +36,18 @@ mutation($label:CreateLabelInput!) {
 #    "description": "GraphQL was used to create this label"
 #  }
 #}
+
+
+# The following is POST-ready, it can be used as the body
+# in a POST operation. This can be used with Postman.
+# {
+#   "query": "mutation($label:CreateLabelInput!) {\n  createLabel(input:$label) {\n    label {\n      id\n      name\n      color\n      description\n      updatedAt\n    }\n  }\n}\n",
+#   "variables": {
+#     "label": {
+#       "repositoryId": "Your chosen repo's ID",
+#       "name": "QLQLQL",
+#       "color": "e4e669",
+#       "description": "QL created this label"
+#     }
+#   }
+# }

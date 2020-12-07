@@ -25,3 +25,18 @@ mutation($data:CreateIssueInput!) {
 #    "clientMutationId": null
 #  }
 #}
+
+
+# The following is POST-ready, it can be used as the body
+# in a POST operation. This can be used with Postman.
+# {
+#   "query": "mutation($data:CreateIssueInput!) {\n  createIssue(input:$data) {\n    issue {\n      createdAt\n      id\n      title\n      number\n    }\n  }\n}\n",
+#   "variables": {
+#     "data": {
+#       "repositoryId": "Your chosen repo's ID",
+#       "title": "TEST 1 graphql",
+#       "body": "this is a test 1 of graphql issue creation.",
+#       "clientMutationId": null
+#     }
+#   }
+# }
