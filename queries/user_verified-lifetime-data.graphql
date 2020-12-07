@@ -1,0 +1,35 @@
+# Get the Validated User's Contribution Lifetime Data
+# 
+# The values returned by this query represent the totals for 
+# the lifetime of the user. 
+{
+  # retrieve info for the current validated user. this is 
+  # typically the user that owns the access token in the header.
+  viewer {
+    name
+    login
+    createdAt
+    issues {
+      totalCount
+    }
+    pullRequests{
+      totalCount
+    }
+    repositories(ownerAffiliations: OWNER, isFork: false) {
+      totalCount
+    }
+    repositoriesContributedTo {
+			totalCount
+    }
+    contributionsCollection {
+      startedAt
+      endedAt
+      totalCommitContributions
+      restrictedContributionsCount
+      totalPullRequestContributions
+      totalIssueContributions
+      totalRepositoryContributions
+    }
+  }
+}
+
