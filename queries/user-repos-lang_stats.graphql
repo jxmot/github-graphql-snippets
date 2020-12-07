@@ -15,7 +15,7 @@
       totalDiskUsage
       # the list of repositories
       nodes {
-        name
+        nameWithOwner
         # private repo?
         isPrivate
         # here is the list of languages used in this repo
@@ -38,3 +38,9 @@
     }
   }
 }
+
+# The following is POST-ready, it can be used as the body
+# in a POST operation. This can be used with Postman.
+# {
+#   "query": "{\n  user(login: \"jxmot\") {\n    repositories(first: 100, isFork: false, ownerAffiliations: OWNER, orderBy: {direction: DESC, field: CREATED_AT}) {\n      totalCount\n      pageInfo {\n        hasNextPage\n        hasPreviousPage\n      }\n      totalDiskUsage\n      nodes {\n        nameWithOwner\n        isPrivate\n        languages(first: 100, orderBy: {direction: DESC, field: SIZE}) {\n          totalCount\n          pageInfo {\n            hasNextPage\n            hasPreviousPage\n          }\n          edges {\n            node {\n              name\n              color\n            }\n            size\n          }\n        }\n      }\n    }\n  }\n}\n"
+# }

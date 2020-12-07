@@ -13,7 +13,7 @@
     repositoriesContributedTo(first: 100) {
       totalCount
       nodes {
-        name
+        nameWithOwner
       }
     }
     pullRequests(first: 1) {
@@ -36,7 +36,7 @@
       }
       # there are no fields for "commits", it's not available?
       nodes {
-        name
+        nameWithOwner
         isPrivate
         forkCount
         stargazerCount
@@ -52,5 +52,5 @@
 # The following is POST-ready, it can be used as the body
 # in a POST operation. This can be used with Postman.
 # {
-#   "query": "# Get Contribution Years and Lifetime Data\n{\n  user(login: \"jxmot\") {\n    name\n    login\n    contributionsCollection {\n      hasAnyContributions\n      contributionYears\n    }\n    repositoriesContributedTo(first: 100) {\n      totalCount\n      nodes {\n        name\n      }\n    }\n    pullRequests(first: 1) {\n      totalCount\n    }\n    issues(first: 1) {\n      totalCount\n    }\n    followers {\n      totalCount\n    }\n    repositories(first: 100, isFork: false, ownerAffiliations: OWNER, orderBy: {direction: DESC, field: STARGAZERS}) {\n      totalCount\n      pageInfo{\n        hasNextPage\n        hasPreviousPage\n      }\n      nodes {\n        name\n        isPrivate\n        forkCount\n        stargazerCount\n        watchers {\n          totalCount\n        }\n      }\n    }\n  }\n}\n"
+#   "query": "# Get Contribution Years and Lifetime Data\n{\n  user(login: \"jxmot\") {\n    name\n    login\n    contributionsCollection {\n      hasAnyContributions\n      contributionYears\n    }\n    repositoriesContributedTo(first: 100) {\n      totalCount\n      nodes {\n        nameWithOwner\n      }\n    }\n    pullRequests(first: 1) {\n      totalCount\n    }\n    issues(first: 1) {\n      totalCount\n    }\n    followers {\n      totalCount\n    }\n    repositories(first: 100, isFork: false, ownerAffiliations: OWNER, orderBy: {direction: DESC, field: STARGAZERS}) {\n      totalCount\n      pageInfo{\n        hasNextPage\n        hasPreviousPage\n      }\n      nodes {\n        nameWithOwner\n        isPrivate\n        forkCount\n        stargazerCount\n        watchers {\n          totalCount\n        }\n      }\n    }\n  }\n}\n"
 # }
