@@ -3,6 +3,8 @@
 #
 {
   repository(owner: "jxmot", name: "labelmgr-test") {
+    id
+    isPrivate
     labels(first:100, orderBy:{field:NAME, direction:ASC}) {
       # total quantity of labels in this repository
       totalCount
@@ -24,3 +26,9 @@
     }
   }
 }
+
+# The following is POST-ready, it can be used as the body
+# in a POST operation. This can be used with Postman.
+# {
+#   "query": "{\n  repository(owner: \"jxmot\", name: \"labelmgr-test\") {\n    id\n    isPrivate\n    labels(first: 100, orderBy: {field: NAME, direction: ASC}) {\n      totalCount\n      nodes {\n        name\n        id\n        color\n        description\n        issues(first: 1) {\n          totalCount\n        }\n        pullRequests(first: 1) {\n          totalCount\n        }\n      }\n    }\n  }\n}\n"
+# }
