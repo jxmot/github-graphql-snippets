@@ -1,4 +1,4 @@
-# Get Contribution Years and Lifetime Data
+# Get Contribution Lifetime Data
 # 
 # The values returned by this query represent the totals for 
 # the lifetime of the user. 
@@ -34,3 +34,9 @@
     }
   }
 }
+
+# The following is POST-ready, it can be used as the body
+# in a POST operation. This can be used with Postman.
+# {
+#  "query": "{\n  user(login: \"jxmot\") {\n    name\n    login\n    contributionsCollection(from: \"2020-01-01T06:00:00Z\", to: \"2020-12-31T05:59:59Z\") {\n      startedAt\n      endedAt\n      hasActivityInThePast\n      totalCommitContributions\n      restrictedContributionsCount\n      totalPullRequestContributions\n      totalIssueContributions\n      totalRepositoryContributions\n    }\n  }\n}\n"
+# }
