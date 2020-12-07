@@ -60,6 +60,14 @@ Run the GraphiQL application and:
 
 Your ready for your first query!
 
+
+### Application Quirks
+
+* Queries **cannot** be saved from within the application.
+* The *output* pane is cleared when switching between tabs.
+* The *Documentation Explorer* pane is cleared when switching between tabs.
+* Tab *query* panes will be retained when exiting the application. But it appears that this is only done if the query tab has been renamed.
+
 ### Postman Notes
 
 To use Postman to send GraphQL you will need the query or mutation formatted so that it will POST correctly. To get the correct formatting start by creating your GraphQL in the GraphiQL application. Then go to the application's "File" menu and click on "Export Query(to clipboard)". 
@@ -77,13 +85,6 @@ Then set up the HTTP header:
 </p>
 
 Then click "Send" and you should get a response. If the response is an error then either the "Body" is incorrect or the header is wrong. Make sure you placed your GitHub *personal access token* as "Authorization" in the header.
-
-### Application Quirks
-
-* Queries **cannot** be saved from within the application.
-* The *output* pane is cleared when switching between tabs.
-* The *Documentation Explorer* pane is cleared when switching between tabs.
-* Tab *query* panes will be retained when exiting the application. But it appears that this is only done if the query tab has been renamed.
 
 ## Queries
 
