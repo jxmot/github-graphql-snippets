@@ -19,6 +19,8 @@ I've been using the [GraphiQL](<https://github.com/skevy/graphiql-app>) applicat
 
 If you're going to try a different application be sure that you can edit the HTTP headers. It will be necessary for *mutations* and perhaps some queries depending on their *preview*.
 
+Another tool that works well is [Postman](https://www.postman.com/). It can send requests for queries and mutations. And in regards to the HTTP header it's much easier to edit. Each request can have its own header unlike the GraphiQL application.
+
 ### Set Up
 
 You'll need the following:
@@ -166,6 +168,7 @@ And here is the result of the query:
 * **`/queries/user-repos-name_id_priv.graphql`** : retrieves the user's repos, and obtains the name, id, and privacy for each one found
 * **`/queries/user-repo-issues-open-labeling_timeline.graphql`** : retrieves a user's specific repo, its issues and lists the label operations(*in a timeline*) for each issue.
 * **`/queries/user-repo-labels-all-usage.graphql`** : retrieves the labels from a repository and gets a count of pull requests and issues for each label.
+* **`/queries/user_verified-lifetime-data.graphql`** : retrieves the validated user's info.
 
 ## Mutations
 
@@ -212,6 +215,10 @@ The data used by the mutation:
 
 * **`/mutations/create-repo-issue.graphql`** : create an issue in a specified repository. A *repository ID* is required, IDs can be obtained with **`/queries/user-repos-name_id_priv.graphql`**
 * **`/mutations/create-repo-label.graphql`** : create a label in a specified repository. A *repository ID* is required, IDs can be obtained with **`/queries/user-repos-name_id_priv.graphql`**
+
+## Additional File Contents
+
+Each of the query and mutation files described above also contain the GraphQL code and required data for use in  a POST body. After removing the **`#`** comments the result can be used in [Postman](https://www.postman.com/) to send GraphQL commands.
 
 ## GitHub V4 API Quirks
 
