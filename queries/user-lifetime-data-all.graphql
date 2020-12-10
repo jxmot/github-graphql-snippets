@@ -6,14 +6,18 @@
   user(login: "jxmot") {
     name
     login
+    isHireable
+    # a list of years the user has contributed
     contributionsCollection {
       hasAnyContributions
       contributionYears
     }
+    # Non-owned repository contributions
     repositoriesContributedTo(first: 100) {
       totalCount
       nodes {
         nameWithOwner
+        description
       }
     }
     pullRequests(first: 1) {
@@ -22,13 +26,14 @@
     issues(first: 1) {
       totalCount
     }
-    followers {
+    followers(first: 1) {
       totalCount
     }
     # get the user's collection of repositories, and retrieve the 
     # total number of forks, stars, and watchers for each repo
     repositories(first: 100, isFork: false, ownerAffiliations: OWNER, orderBy: {direction: DESC, field: STARGAZERS}) {
       totalCount
+      totalDiskUsage
       # get pagination 
       pageInfo{
         hasNextPage
@@ -38,12 +43,19 @@
       nodes {
         nameWithOwner
         isPrivate
-        forkCount
+        createdAt
         stargazerCount
         # this does NOT have a separate "count" fields
-        watchers {
+        watchers(first:1) {
           totalCount
         }
+        issues(first:1) {
+          totalCount
+        }
+        pullRequests(first:1) {
+          totalCount
+        }
+        forkCount
       }
     }
   }

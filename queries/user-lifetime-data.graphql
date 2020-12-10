@@ -29,7 +29,7 @@
       totalCount
     }
     # the total number of followers that the user has
-    followers {
+    followers(first: 1) {
       totalCount
     }
   }

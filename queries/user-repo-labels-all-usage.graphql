@@ -6,7 +6,7 @@ query($_owner:String!, $_reponame:String!)
   repository(owner: $_owner, name: $_reponame) {
     id
     isPrivate
-    labels(first:100, orderBy:{field:NAME, direction:ASC}) {
+    labels(first: 100, orderBy: {field: NAME, direction: ASC}) {
       # total quantity of labels in this repository
       totalCount
       # get all of the labels, and show some useful info
