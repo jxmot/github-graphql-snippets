@@ -28,7 +28,7 @@ query($_owner:String!, $_reponame:String!)
   }
 }
 
-## Variable(s): If using the GraphiQL app the following gets
+# Variable(s): If using the GraphiQL app the following gets
 # placed in the "QUERY VARIABLES" pane without the "#" on 
 # each line.
 #{
