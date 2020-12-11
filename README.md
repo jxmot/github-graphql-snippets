@@ -186,6 +186,12 @@ And here is the result of the query:
 * **`/queries/user-repo-labels-all-usage.graphql`** : retrieves the labels from a repository and gets a count of pull requests and issues for each label.
 * **`/queries/user_verified-lifetime-data.graphql`** : retrieves the validated user's info.
 
+Pagination Examples:
+
+* **`/queries/user-verified-pagination-starred_repos.graphql`** : retrieves the validated user's list of starred repos where pagination can applied.
+
+
+
 ## Mutations
 
 *Mutations* are the means to create or update things via the V4 API. 
