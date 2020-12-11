@@ -232,6 +232,16 @@ The data used by the mutation:
 * **`/mutations/create-repo-issue.graphql`** : create an issue in a specified repository. A *repository ID* is required, IDs can be obtained with **`/queries/user-repos-name_id_priv.graphql`**
 * **`/mutations/create-repo-label.graphql`** : create a label in a specified repository. A *repository ID* is required, IDs can be obtained with **`/queries/user-repos-name_id_priv.graphql`**
 
+#### Mutation Notes
+
+You **must** set the `Accept` field in the HTTP header before sending any of the *label modification* mutations. Add `Accept: ` to the HTTP header, For example:
+
+`Accept: application/vnd.github.bane-preview+json`
+
+For more information go to [labels preview](https://docs.github.com/en/free-pro-team@latest/graphql/overview/schema-previews#labels-preview).
+
+With the HTTP header set that way all other calls to the GitHub V4 GrapQL enpoint *should still work*.
+
 ## Additional File Contents
 
 Each of the query and mutation files described above also contain the GraphQL code and required data for use in  a POST body. After removing the **`#`** comments the result can be used in [Postman](https://www.postman.com/) to send GraphQL commands.
