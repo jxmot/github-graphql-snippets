@@ -1,0 +1,66 @@
+# Get the Validated User's paged list of starred repositories
+#
+# To see pagination work use these steps:
+#
+#   1) Run the query with the data as shown below
+#   2) After the first successful query, copy the string from the 
+#      result at `pageInfo.endCursor' into the `aft` data item
+#   3) Run the query again
+#   4) The next "page" will be returned
+#   5) To go to the previous page copy the string from the result
+#      at `pageInfo.startCursor' into the `bef` data item
+#   6) Set `aft` to `null`
+#   7) Run the query again
+#   8) The previous "page" will be returned
+#
+query($psz:Int!, $aft:String, $bef:String) {
+  viewer {
+    login
+    name
+    starredRepositories(first: $psz, 
+                        orderBy: {direction: DESC, field: STARRED_AT}, 
+                        after: $aft,
+                        before: $bef
+                        ) {
+      totalCount
+      pageInfo {
+        hasNextPage
+        endCursor
+        hasPreviousPage
+        startCursor
+      }
+      edges {
+        starredAt
+        node {
+          name
+          stargazerCount
+          primaryLanguage {
+            id
+            name
+          }
+        }
+      }
+    }
+  }
+}
+
+
+# Variable(s): If using the GraphiQL app the following gets
+# placed in the "QUERY VARIABLES" pane. without the "#" on 
+# each line.
+#{
+#  "psz": 3,
+#  "aft": null,
+#  "bef": null
+#}
+
+# The following is POST-ready, it can be used as the body
+# in a POST operation. This can be used with Postman.
+#{
+#  "query": "query($psz:Int!, $aft:String, $bef:String) {\n  viewer {\n    login\n    name\n    starredRepositories(first: $psz, \n                        orderBy: {direction: DESC, field: STARRED_AT}, \n                        after: $aft,\n                        before: $bef\n                        ) {\n      totalCount\n      pageInfo {\n        hasNextPage\n        endCursor\n        hasPreviousPage\n        startCursor\n      }\n      edges {\n        starredAt\n        node {\n          name\n          stargazerCount\n          primaryLanguage {\n            id\n            name\n          }\n        }\n      }\n    }\n  }\n}\n",
+#  "variables": {
+#    "psz": 3,
+#    "aft": null,
+#    "bef": null
+#  }
+#}
