@@ -271,7 +271,7 @@ To see how pagination works use these steps:
 
 **NOTE**: You will need to have some starred repositories under your account. The minimum recommended for this demonstration is 12. If you have a lot of starred repos change the value used in `"fst"` and `"lst"` to a larger value. For example, if you had 100 starred repos you could change that value from `3` to `25`. That would give you 4 pages of 25 items.
 
-For a *visual* representation of pagination view this [file](http://webexperiment.info/ghpagination/pagination.html). There is also an accompanying Excel spreadsheet in the `docs` folder in this repository.
+For a *visual* representation of pagination view this [file](http://webexperiment.info/ghqlpagination/pagination.html). There is also an accompanying Excel spreadsheet in the `docs` folder in this repository.
 
 ## Mutations
 
