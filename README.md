@@ -191,15 +191,9 @@ It took me a bit to understand how *pagination* works under the GitHub's impleme
 
 The GitHub GraphQL uses the *Complete Connection Model* method of pagination. Which is partially descrbed [here](https://graphql.github.io/learn/pagination/#complete-connection-model). 
 
-<a href="https://graphql.github.io/learn/pagination/#complete-connection-model" target="_blank">
-here
-</a>
-
 Pagination Examples:
 
 * **`/queries/user-verified-pagination-starred_repos.graphql`** : retrieves the validated user's list of starred repos where pagination can applied.
-
-
 
 ## Mutations
 
