@@ -57,7 +57,6 @@ Run the GraphiQL application and:
 
 Your ready for your first query!
 
-
 ### Application Quirks
 
 * Queries **cannot** be saved from within the application.
@@ -185,6 +184,16 @@ And here is the result of the query:
 * **`/queries/user-repo-issues-open-labeling_timeline.graphql`** : retrieves a user's specific repo, its issues and lists the label operations(*in a timeline*) for each issue.
 * **`/queries/user-repo-labels-all-usage.graphql`** : retrieves the labels from a repository and gets a count of pull requests and issues for each label.
 * **`/queries/user_verified-lifetime-data.graphql`** : retrieves the validated user's info.
+
+### Queries and Pagination
+
+It took me a bit to understand how *pagination* works under the GitHub's implementation of GraphQL. Honestly it isn't that difficult. But the available documentation does not seem to provide any *workable* examples or a very clear explanation.
+
+The GitHub GraphQL uses the *Complete Connection Model* method of pagination. Which is partially descrbed [here](https://graphql.github.io/learn/pagination/#complete-connection-model). 
+
+<a href="https://graphql.github.io/learn/pagination/#complete-connection-model" target="_blank">
+here
+</a>
 
 Pagination Examples:
 
