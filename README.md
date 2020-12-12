@@ -327,7 +327,7 @@ You **must** set the `Accept` field in the HTTP header before sending any of the
 
 For more information go to [labels preview](https://docs.github.com/en/free-pro-team@latest/graphql/overview/schema-previews#labels-preview).
 
-With the HTTP header set that way all other calls to the GitHub V4 GrapQL enpoint *should still work*.
+With the HTTP header set that way **all other calls** to the GitHub V4 GrapQL enpoint *should still work*.
 
 ## Additional File Contents
 
