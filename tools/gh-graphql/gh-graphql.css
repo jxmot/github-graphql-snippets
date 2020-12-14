@@ -1,31 +1,30 @@
-
 body {
-  font-family: "Segoe UI", Tahoma, Helvetica, freesans, sans-serif;
-  font-size: 90%;
-  margin: 10px;
-  color: #333;
-  background-color: #fff;
+    font-family: "Segoe UI", Tahoma, Helvetica, freesans, sans-serif;
+    font-size: 90%;
+    margin: 10px;
+    color: #333;
+    background-color: #fff;
 }
 
 pre {
-  width: 95%;
-  height: 400px;
-  font-family: monospace;
-  font-size: 1.5em;
-  padding: 1px 2px;
-  margin: 0 0 1em auto;
-  border: 1px inset #666;
-  background-color: #eee;
-  overflow: auto;
+    width: 95%;
+    height: 400px;
+    font-family: monospace;
+    font-size: 1.5em;
+    padding: 1px 2px;
+    margin: 0 0 1em auto;
+    border: 1px inset #666;
+    background-color: #eee;
+    overflow: auto;
 }
 
 #drop_zone {
-  margin: auto;
-  border: 3px solid green;
-  width:  200px;
-  height: 100px;
-  align: center;
-  text-align: center;
+    margin: auto;
+    border: 3px solid green;
+    width: 200px;
+    height: 100px;
+    align: center;
+    text-align: center;
 }
 
 #drop_msg {
@@ -33,6 +32,7 @@ pre {
 }
 
 #drop_file {
-  margin: auto;
-  width: 80%;
+    margin: auto;
+    width: 80%;
 }
+
