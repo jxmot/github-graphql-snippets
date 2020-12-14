@@ -1,3 +1,16 @@
+///////////////////////////////////////
+// dropit.js - The required code to 
+// enable the drag and drop of a file.
+//
+// This code was created by researching
+// drag-n-drop JavaScript implementations.
+//
+// It is the minimum requried for just
+// the basics of drag-n-drop. 
+//
+
+// Handler for when a file is dropped into
+// the target area.
 function dropHandler(ev) {
     console.log('File(s) dropped');
 
@@ -19,6 +32,7 @@ function dropHandler(ev) {
     }
 }
 
+// Drag over handler
 function dragOverHandler(ev) {
     console.log('File(s) in drop zone');
     ev.dataTransfer.dropEffect = 'move';
@@ -26,6 +40,9 @@ function dragOverHandler(ev) {
     ev.preventDefault();
 }
 
+// After the file is dropped this function is
+// called to open the file and place it's 
+// contents in the HTML file.
 function fileContents(file) {
 	var reader = new FileReader();
 	reader.onload = function(e) {
@@ -37,6 +54,7 @@ function fileContents(file) {
 	reader.readAsText(file);
 }
 
+// Set up the minium of handlers for drag-n-drop
 var dz = document.getElementById('drop_zone');
 dz.addEventListener('dragover', dragOverHandler);
 dz.addEventListener('drop', dropHandler);
