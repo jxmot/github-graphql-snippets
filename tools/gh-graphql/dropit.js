@@ -50,9 +50,38 @@ function fileContents(file) {
         df.innerHTML = "<p><strong>" + file.name + ":</strong></p><pre>" +
 			           e.target.result.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
 			           "</pre>";
+
+        var clean = rmvComments(e.target.result);
 	}
 	reader.readAsText(file);
 }
+
+// Remove any line that has a comment which
+// will contain a "#". The entire line is
+// removed so lines with code and comments
+// will be removed.
+function rmvComments(content) {
+var out = [];
+
+    // first split into an array at newline
+    var res = content.split(/\r?\n/);
+    // interate through the array and...
+    for(ix = 0, io = 0; ix < res.length; ix++) {
+        // if there is NO comment...
+        if(!res[ix].includes('#')) {
+            // if it is long enough...
+            if(res[ix].length > 0) {
+                // copy it to the output
+                out[io] = res[ix];
+                io++;
+            }
+        }
+    }
+    // convert the array into a string and
+    // terminate it with a newline
+    return (out.join('\n') + '\n');
+}
+
 
 // Set up the minium of handlers for drag-n-drop
 var dz = document.getElementById('drop_zone');
