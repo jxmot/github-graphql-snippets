@@ -82,6 +82,16 @@ var out = [];
     return (out.join('\n') + '\n');
 }
 
+// Export human-readable queries (and data) to 
+// GraphQL POST-ing format.
+function exportQuery(qtext, vtext) {
+    const variables = vtext ? JSON.parse(vtext) : undefined;
+    const queryObj = {
+      query: qtext,
+      variables
+    };
+    return(JSON.stringify(queryObj, null, 2));
+}
 
 // Set up the minium of handlers for drag-n-drop
 var dz = document.getElementById('drop_zone');
