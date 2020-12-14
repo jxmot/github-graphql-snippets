@@ -184,6 +184,7 @@ And here is the result of the query:
 * **`/queries/user-repo-issues-open-labeling_timeline.graphql`** : retrieves a user's specific repo, its issues and lists the label operations(*in a timeline*) for each issue.
 * **`/queries/user-repo-labels-all-usage.graphql`** : retrieves the labels from a repository and gets a count of pull requests and issues for each label.
 * **`/queries/user_verified-lifetime-data.graphql`** : retrieves the validated user's info.
+* **`/queries/user_verified-resource_limitations.graphql.graphql`** : retrieve resource limits and usage for the current validated user.
 
 ### Queries and Pagination
 
@@ -197,7 +198,7 @@ Pagination Examples:
 
 #### Pagination in Detail
 
-Using the **`/queries/user-verified-pagination-starred_repos.graphql`** I will attempt to explain how pagination works under the GitHub GraphQL API.
+Using the **`/queries/user-verified-pagination-starred_repos.graphql`** file I will attempt to explain how pagination works under the GitHub GraphQL API.
 
 First, open a GraphQL *explorer*. This example should also work with GitHub's [GraphQL Explorer](https://docs.github.com/en/free-pro-team@latest/graphql/overview/explorer). Open the Explorer and *paste* the following into it:
 
@@ -236,7 +237,7 @@ query($fst:Int, $lst:Int, $aft:String, $bef:String) {
 }
 ```
 
-Variables needed by the query:
+Variables needed by the query, paste this into the *query variables* pane :
 
 ```
 {
@@ -346,6 +347,6 @@ Each of the query and mutation files described above also contain the GraphQL co
 
 There are a number of *GraphQL Explorers*. But I've been using the [GraphiQL](<https://github.com/skevy/graphiql-app>) application. One alternative is the [GitHub GraphQL Explorer](https://developer.github.com/v4/explorer/), which makes sense for this project. But it has a major shortcoming: You can't edit the HTTP header.
 
-This is important because in order to perform some operations (*like mutations on labels*) you must change the `Accept` portion of the HTTP header.
+This is important because in order to perform some operations (*like mutations on labels*) you must change the `Accept` portion of the HTTP header. 
 
 I will update this section as I find alternatives to the quirky GrahpiQL application.
