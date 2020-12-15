@@ -40,6 +40,14 @@ function dragOverHandler(ev) {
     ev.preventDefault();
 }
 
+// Handler for when a file is dropped into
+// the target area.
+function noDragDrop(ev) {
+    console.log('you can\'t touch that');
+    // Prevent default behavior (Prevent file from being opened)
+    ev.preventDefault();
+}
+
 // After the file is dropped this function is
 // called to open the file and place it's 
 // contents in the HTML file.
@@ -51,50 +59,22 @@ function fileContents(file) {
 			           e.target.result.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
 			           "</pre>";
 
-        var clean = rmvComments(e.target.result);
+        // prepare for POST-ing...
+        var clean   = rmvComments(e.target.result);
+        var gqlout  = splitQueryVars(clean);
+        var gqlpost = gqlToPOST(gqlout[0], gqlout[1]);
+        // ready to POST!
 	}
 	reader.readAsText(file);
-}
-
-// Remove any line that has a comment which
-// will contain a "#". The entire line is
-// removed so lines with code and comments
-// will be removed.
-function rmvComments(content) {
-var out = [];
-
-    // first split into an array at newline
-    var res = content.split(/\r?\n/);
-    // interate through the array and...
-    for(ix = 0, io = 0; ix < res.length; ix++) {
-        // if there is NO comment...
-        if(!res[ix].includes('#')) {
-            // if it is long enough...
-            if(res[ix].length > 0) {
-                // copy it to the output
-                out[io] = res[ix];
-                io++;
-            }
-        }
-    }
-    // convert the array into a string and
-    // terminate it with a newline
-    return (out.join('\n') + '\n');
-}
-
-// Export human-readable queries (and data) to 
-// GraphQL POST-ing format.
-function exportQuery(qtext, vtext) {
-    const variables = vtext ? JSON.parse(vtext) : undefined;
-    const queryObj = {
-      query: qtext,
-      variables
-    };
-    return(JSON.stringify(queryObj, null, 2));
 }
 
 // Set up the minium of handlers for drag-n-drop
 var dz = document.getElementById('drop_zone');
 dz.addEventListener('dragover', dragOverHandler);
 dz.addEventListener('drop', dropHandler);
+
+// disallow poorly aimed droppings....
+var nd = document.getElementById('nodrop');
+nd.addEventListener('dragover', noDragDrop);
+nd.addEventListener('drop', noDragDrop);
 
