@@ -9,6 +9,11 @@
 //                            and Variables (if present)
 //      gqlToPOST()         : Converts GraphQL to POST format
 //
+// There is also an event handler(jQuery events) that waits
+// for the 'fileready' event. That event is triggered after
+// a file is loaded and the contents are delivered with the
+// event.
+//
 ///////////////////////////////////////////////////////////
 // Remove any line that has a comment which
 // will contain a "#". The entire line is
@@ -36,6 +41,23 @@ var out = [];
     return (out.join('\n') + '\n');
 }
 
+// Count the braces, they're totaled as each line 
+// is read. Return an array with the totals for each.
+var obrace = 0;
+var cbrace = 0;
+function countBrace(line) {
+    for(var ix = 0; ix < line.length; ix++) {
+        if(line.charAt(ix) === '{') {
+            obrace += 1;
+        } else {
+            if(line.charAt(ix) ==='}') {
+                cbrace += 1;
+            }
+        }
+    }
+    return [obrace, cbrace];
+}
+
 // Extract the variables section from the 
 // file. The input cannot contain any comments.
 // Call rmvComments() first and pass its 
@@ -47,8 +69,7 @@ var out = [];
 function splitQueryVars(content) {
 var qout = [];
 var vout = [];
-var obrace = 0;
-var cbrace = 0;
+var braces = [];
 var inquery = true;
 
     // first split into an array at newline
@@ -65,22 +86,21 @@ var inquery = true;
             qout[qio] = qry[ix];
             qio++;
             // check for braces...
-            if(qry[ix].includes('{')) {
-                obrace += 1;
-            } // NO else, a line might contain both braces
-            if(qry[ix].includes('}')) {
-                cbrace += 1;
-            }
-            if(obrace === cbrace) {
+            braces = countBrace(qry[ix]);
+            // is the query complete
+            if((braces[0] === braces[1]) && ix > 0) {
+                // yes, it's time for the Variables
                 inquery = false;
                 continue;
             }
         } else {
-            // copy the rest
+            // copy the Variables
             vout[vio] = qry[ix];
             vio++;
         }
     }
+    // convert arrays to strings and
+    // place into a return array
     var ret = [
         (qout.join('\n') + '\n'),
         (vio >= 3 ? (vout.join('\n') + '\n') : null)
@@ -99,3 +119,19 @@ function gqlToPOST(qtext, vtext) {
     return(JSON.stringify(queryObj, null, 2));
 }
 
+// Wait for the file to be dropped and its contents
+// read. Then prepare the contents for POST-ing
+$(document).on('fileready', function(ev, content) {
+    // prepare for POST-ing...
+    var clean   = rmvComments(content);
+
+    obrace = 0;
+    cbrace = 0;
+    var gqlout  = splitQueryVars(clean);
+
+    var gqlpost = gqlToPOST(gqlout[0], gqlout[1]);
+
+    // ready to POST!
+    console.log('\n\n');
+    console.log(gqlpost);
+});
