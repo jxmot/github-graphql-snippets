@@ -36,13 +36,3 @@ query($_owner:String!, $_reponame:String!)
   "_reponame": "labelmgr-test"
 }
 
-
-# The following is POST-ready, it can be used as the body
-# in a POST operation. This can be used with Postman.
-# {
-#   "query": "query($_owner:String!, $_reponame:String!)\n{\n  repository(owner: $_owner, name: $_reponame) {\n    id\n    isPrivate\n    labels(first: 100, orderBy: {field: NAME, direction: ASC}) {\n      totalCount\n      nodes {\n        name\n        id\n        color\n        description\n        issues(first: 1) {\n          totalCount\n        }\n        pullRequests(first: 1) {\n          totalCount\n        }\n      }\n    }\n  }\n}\n\n\n",
-#   "variables": {
-#     "_owner": "jxmot",
-#     "_reponame": "labelmgr-test"
-#   }
-# }

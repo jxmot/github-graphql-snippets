@@ -1,7 +1,8 @@
 # Get the issues from a repository and get a timeline 
 # of labeling events.
+query($_owner:String!, $_reponame:String!)
 {
-  repository(owner: "jxmot", name: "labelmgr-test") {
+  repository(owner: $_owner, name: $_reponame) {
     id
     # searching open issues
     issues(first: 100, states: OPEN) {
@@ -41,8 +42,10 @@
   }
 }
 
-# The following is POST-ready, it can be used as the body
-# in a POST operation. This can be used with Postman.
-# {
-#   "query": "# Get the issues from a repository and get a timeline \n# of labeling events.\n{\n  repository(owner: \"jxmot\", name: \"labelmgr-test\") {\n    id\n    # searching open issues\n    issues(first: 100, states: OPEN) {\n      totalCount\n      edges {\n        # issues\n        node {\n          title\n          url\n          number\n          createdAt\n          timelineItems(last: 100, itemTypes: [LABELED_EVENT,UNLABELED_EVENT]) {\n            totalCount\n            # label operations made to this issue\n            edges {\n              node {\n                # this is necessary to identify which event was found\n                __typename\n                ... on LabeledEvent {\n                  createdAt\n                  label {\n                    name\n                  }\n                }\n                ... on UnlabeledEvent {\n                  createdAt\n                  label {\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
-# }
+# Variable(s): If using the GraphiQL app the following gets
+# placed in the "QUERY VARIABLES" pane. without the "#" on 
+# each line.
+{
+  "_owner": "jxmot",
+  "_reponame": "labelmgr-test"
+}

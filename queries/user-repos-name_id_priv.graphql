@@ -1,7 +1,8 @@
 # Get User Repos: name, id, privacy
 # 
+query($_login:String!)
 {
-  user(login: "jxmot") {
+  user(login: $_login) {
     repositories(first: 100, isFork: false, ownerAffiliations: OWNER, orderBy: {direction: DESC, field: CREATED_AT}) {
       totalCount
       pageInfo {
@@ -17,8 +18,9 @@
   }
 }
 
-# The following is POST-ready, it can be used as the body
-# in a POST operation. This can be used with Postman.
-# {
-#   "query": "# Get User Repos: name, id, privacy\n# \n{\n  user(login: \"jxmot\") {\n    repositories(first: 100, isFork: false, ownerAffiliations: OWNER, orderBy: {direction: DESC, field: CREATED_AT}) {\n      totalCount\n      pageInfo {\n        hasNextPage\n        hasPreviousPage\n      }\n      nodes {\n        name\n        id\n        isPrivate\n      }\n    }\n  }\n}\n"
-# }
+# Variable(s): If using the GraphiQL app the following gets
+# placed in the "QUERY VARIABLES" pane. without the "#" on 
+# each line.
+{
+  "_login": "jxmot"
+}
