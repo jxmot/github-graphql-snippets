@@ -9,8 +9,24 @@
 // the basics of drag-n-drop. 
 //
 
+// File loaded event handler
+function fileLoadEnd(ev) {
+    var df = document.getElementById('drop_file');
+    df.innerHTML = "<p><strong>" + file.name + ":</strong></p><pre>" +
+		           ev.target.result.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
+		           "</pre>";
+
+    // send an event to notify the GraphQL file processing...
+    $(document).trigger('fileready', ev.target.result);
+}
+
 // Handler for when a file is dropped into
 // the target area.
+var file;
+var reader;
+reader = new FileReader();
+reader.onload = fileLoadEnd;
+
 function dropHandler(ev) {
     console.log('File(s) dropped');
 
@@ -24,9 +40,9 @@ function dropHandler(ev) {
         } else {
             // If dropped items aren't files, reject them
             if (ev.dataTransfer.items[0].kind === 'file') {
-                var file = ev.dataTransfer.items[0].getAsFile();
+                file = ev.dataTransfer.items[0].getAsFile();
                 console.log('dropped file name = ' + file.name);
-                fileContents(file);
+                reader.readAsText(file);
             }
         }
     }
@@ -74,7 +90,7 @@ dz.addEventListener('dragover', dragOverHandler);
 dz.addEventListener('drop', dropHandler);
 
 // disallow poorly aimed droppings....
-var nd = document.getElementById('nodrop');
-nd.addEventListener('dragover', noDragDrop);
-nd.addEventListener('drop', noDragDrop);
+//var nd = document.getElementById('nodrop');
+//nd.addEventListener('dragover', noDragDrop);
+//nd.addEventListener('drop', noDragDrop);
 
