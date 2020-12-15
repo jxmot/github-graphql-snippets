@@ -31,8 +31,11 @@ pre {
     padding: 3px;
 }
 
-#drop_file {
+#drop_file, #post_file {
     margin: auto;
     width: 80%;
 }
 
+pre#postout {
+    height: auto!important;
+}

@@ -64,26 +64,6 @@ function noDragDrop(ev) {
     ev.preventDefault();
 }
 
-// After the file is dropped this function is
-// called to open the file and place it's 
-// contents in the HTML file.
-function fileContents(file) {
-	var reader = new FileReader();
-	reader.onload = function(e) {
-        var df = document.getElementById('drop_file');
-        df.innerHTML = "<p><strong>" + file.name + ":</strong></p><pre>" +
-			           e.target.result.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
-			           "</pre>";
-
-        // prepare for POST-ing...
-        var clean   = rmvComments(e.target.result);
-        var gqlout  = splitQueryVars(clean);
-        var gqlpost = gqlToPOST(gqlout[0], gqlout[1]);
-        // ready to POST!
-	}
-	reader.readAsText(file);
-}
-
 // Set up the minium of handlers for drag-n-drop
 var dz = document.getElementById('drop_zone');
 dz.addEventListener('dragover', dragOverHandler);

@@ -134,4 +134,6 @@ $(document).on('fileready', function(ev, content) {
     // ready to POST!
     console.log('\n\n');
     console.log(gqlpost);
+
+    $(document).trigger('postready', gqlpost);
 });
