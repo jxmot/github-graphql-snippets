@@ -56,12 +56,12 @@ query($fst:Int, $lst:Int, $aft:String, $bef:String) {
 # Variable(s): If using the GraphiQL app the following gets
 # placed in the "QUERY VARIABLES" pane. without the "#" on 
 # each line.
-#{
-#  "fst": 3,
-#  "lst": null,
-#  "aft": null,
-#  "bef": null
-#}
+{
+  "fst": 3,
+  "lst": null,
+  "aft": null,
+  "bef": null
+}
 
 # The following is POST-ready, it can be used as the body
 # in a POST operation. This can be used with Postman.
