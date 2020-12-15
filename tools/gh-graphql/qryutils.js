@@ -108,8 +108,8 @@ var inquery = true;
     return ret;
 }
 
-// Export human-readable queries (and data) to 
-// GraphQL POST-ing format.
+// Export human-readable queries (and Variables)  
+// to GraphQL POST-ing format.
 function gqlToPOST(qtext, vtext) {
     const variables = vtext ? JSON.parse(vtext) : undefined;
     const queryObj = {
