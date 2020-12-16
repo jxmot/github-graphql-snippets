@@ -18,6 +18,10 @@ pre {
     overflow: auto;
 }
 
+#pagetitle {
+    text-align: center;
+}
+
 #drop_zone {
     margin: auto;
     border: 3px solid green;
