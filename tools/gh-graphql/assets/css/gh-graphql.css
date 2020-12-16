@@ -23,7 +23,6 @@ pre {
     border: 3px solid green;
     width: 200px;
     height: 100px;
-    align: center;
     text-align: center;
 }
 
@@ -31,11 +30,18 @@ pre {
     padding: 3px;
 }
 
-#drop_file, #post_file {
+#drop_file, #post_file, #post_send, #post_reply {
     margin: auto;
     width: 80%;
 }
 
 pre#postout {
     height: auto!important;
+    max-height: 200px;
+}
+
+#runbtn {
+    margin:0 auto;
+    display:block;
+    font-size: 1.5em;
 }
