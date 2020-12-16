@@ -49,6 +49,7 @@ Run the GraphiQL application and:
 1) Click the "+ Add header" button
 2) Under "Header name" enter **`Authorization`**
 3) Under "Header value" enter your personal access token, precede it with the word **`Bearer`**. It will look like this: `Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` Where `xxx...` is your personal access token.
+4) Click "Save".
 4) Click anywhere outside of the dialog and it will close.
 
 <p align="center">
