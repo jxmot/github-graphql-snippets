@@ -14,3 +14,21 @@ Run the `gh-graphql.html` file directly in the browser of your choice. It is not
 
 Any of the `*.graphql` files in [`/queries`](../queries) or [`/mutations`](../mutations) can be ran from it. Just drag and drop one of the files where prompted and it will be *automatically* converted to the necessary format for POST-ing to GitHuvb.
 
+### Screen Shots
+
+<p align="center">
+  <img src="../mdimg/ghgql_1.png" alt="" txt="" width="80%" style="border: 1px solid black;">
+</p>
+
+<br><br>
+
+<p align="center">
+  <img src="../mdimg/ghgql_2.png" alt="" txt="" width="80%" style="border: 1px solid black;">
+</p>
+
+<br><br>
+
+<p align="center">
+  <img src="../mdimg/ghgql_3.png" alt="" txt="" width="80%" style="border: 1px solid black;">
+</p>
+
