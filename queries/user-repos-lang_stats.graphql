@@ -41,8 +41,7 @@ query($_login:String!)
 }
 
 # Variable(s): If using the GraphiQL app the following gets
-# placed in the "QUERY VARIABLES" pane. without the "#" on 
-# each line.
+# placed in the "QUERY VARIABLES" pane. 
 {
   "_login": "jxmot"
 }
