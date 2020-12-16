@@ -5,6 +5,9 @@
 // This file contains:
 //
 //      rmvComments()       : Strips out comments
+//      countBrace()        : Counts open and closed braces
+//                            in a line of text and maintains
+//                            a running total of both
 //      splitQueryVars()    : Separates the Query/Mutation
 //                            and Variables (if present)
 //      gqlToPOST()         : Converts GraphQL to POST format
