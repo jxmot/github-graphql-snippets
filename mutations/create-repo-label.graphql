@@ -26,29 +26,13 @@ mutation($label:CreateLabelInput!) {
   }
 }
 
-## Variable(s): If using the GraphiQL app the following gets
-# placed in the "QUERY VARIABLES" pane without the "#" on 
-# each line.
-#{
-#  "label": {
-#    "repositoryId": "Your chosen repo's ID",
-#    "name": "GraphQL Label",
-#    "color": "e4e669",
-#    "description": "GraphQL was used to create this label"
-#  }
-#}
-
-
-# The following is POST-ready, it can be used as the body
-# in a POST operation. This can be used with Postman.
-# {
-#   "query": "mutation($label:CreateLabelInput!) {\n  createLabel(input:$label) {\n    label {\n      id\n      name\n      color\n      description\n      updatedAt\n    }\n  }\n}\n",
-#   "variables": {
-#     "label": {
-#       "repositoryId": "Your chosen repo's ID",
-#       "name": "QLQLQL",
-#       "color": "e4e669",
-#       "description": "QL created this label"
-#     }
-#   }
-# }
+# Variable(s): If using the GraphiQL app the following gets
+# placed in the "QUERY VARIABLES" pane.
+{
+  "label": {
+    "repositoryId": "Your chosen repo's ID",
+    "name": "GraphQL Label",
+    "color": "e4e669",
+    "description": "GraphQL was used to create this label"
+  }
+}

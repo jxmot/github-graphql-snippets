@@ -15,29 +15,13 @@ mutation($data:CreateIssueInput!) {
   }
 }
 
-## Variable(s): If using the GraphiQL app the following gets
-# placed in the "QUERY VARIABLES" pane without the "#" on 
-# each line.
-#{
-#  "data": {
-#    "repositoryId": "Your chosen repo's ID",
-#    "title": "TEST 1 graphql",
-#    "body": "this is a test 1 of graphql issue creation.",
-#    "clientMutationId": null
-#  }
-#}
-
-
-# The following is POST-ready, it can be used as the body
-# in a POST operation. This can be used with Postman.
-# {
-#   "query": "mutation($data:CreateIssueInput!) {\n  createIssue(input:$data) {\n    issue {\n      createdAt\n      id\n      title\n      number\n    }\n  }\n}\n",
-#   "variables": {
-#     "data": {
-#       "repositoryId": "Your chosen repo's ID",
-#       "title": "TEST 1 graphql",
-#       "body": "this is a test 1 of graphql issue creation.",
-#       "clientMutationId": null
-#     }
-#   }
-# }
+# Variable(s): If using the GraphiQL app the following gets
+# placed in the "QUERY VARIABLES" pane.
+{
+  "data": {
+    "repositoryId": "Your chosen repo's ID",
+    "title": "TEST 1 graphql",
+    "body": "this is a test 1 of graphql issue creation.",
+    "clientMutationId": null
+  }
+}
