@@ -337,6 +337,7 @@ Each of the query and mutation files described above also contain the GraphQL co
 ## GitHub V4 API Quirks
 
 * *Lifetime* data **does not** include any means for obtaining the **lifetime total of commits**. This is frustrating because in order to obtain that value multiple calls to something like **`/queries/user-contribs-by_year.graphql`** must be made.
+  * _**NOTE:**_ There is a V3 REST method that can return the number of lifetime *commits*. 
 * The method to retrieve *counts* is inconsistent in some cases. For example, in `User.repositories.RepositoryConnection.nodes.Repository` you can directly get counts with `forkCount` and `stargazerCount`. But there is no access for a watcher count. Instead it's necessary to access `User.repositories.RepositoryConnection.nodes.Repository.watchers.totalCount`.
 * The value found in `User.ContributionsCollection.restrictedContributionsCount` will be 0 if you are querying your own account, and non-zero when querying a user that is sharing the private contributions.
 * The API gives you ability to use many different *mutations*. But it won't allow the creation of labels. Issues, pull requests, and even new repositories are OK.
@@ -350,3 +351,16 @@ There are a number of *GraphQL Explorers*. But I've been using the [GraphiQL](<h
 This is important because in order to perform some operations (*like mutations on labels*) you must change the `Accept` portion of the HTTP header. 
 
 I will update this section as I find alternatives to the quirky GrahpiQL application.
+
+## GraphQL Demonstration Tool
+
+Also included in this repository is my GitHub GraphQL Demonstration tool. It's located in the`/tools/gh-graphql` folder. 
+
+It has the following features :
+
+* Drag and Drop - any one of the `*.graphql` files onto it.
+* The `*.graphql` files are automatically parsed and converted to a POST-able format.
+* After conversion the GraphQL statements can be sent to GitHub and the responses will be displayed.
+
+A README file can be viewed [here](./tools/README.md).
+
