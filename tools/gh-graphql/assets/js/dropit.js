@@ -1,12 +1,12 @@
-///////////////////////////////////////
-// dropit.js - The required code to 
-// enable the drag and drop of a file.
+///////////////////////////////////////////////////////////
+// dropit.js: The required code to enable the drag and 
+// drop of a file.
 //
-// This code was created by researching
-// drag-n-drop JavaScript implementations.
+// This code was created by researching drag-n-drop 
+// JavaScript implementations.
 //
-// It is the minimum requried for just
-// the basics of drag-n-drop. 
+// It is the minimum requried for just the basics of 
+// drag-n-drop. 
 //
 
 // File loaded event handler
