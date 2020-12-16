@@ -54,8 +54,7 @@ query($fst:Int, $lst:Int, $aft:String, $bef:String) {
 }
 
 # Variable(s): If using the GraphiQL app the following gets
-# placed in the "QUERY VARIABLES" pane. without the "#" on 
-# each line.
+# placed in the "QUERY VARIABLES" pane. 
 {
   "fst": 3,
   "lst": null,
@@ -63,14 +62,3 @@ query($fst:Int, $lst:Int, $aft:String, $bef:String) {
   "bef": null
 }
 
-# The following is POST-ready, it can be used as the body
-# in a POST operation. This can be used with Postman.
-#{
-#  "query": "query($fst:Int, $lst:Int, $aft:String, $bef:String) {\n  viewer {\n    login\n    name\n    starredRepositories(orderBy: {direction: DESC, field: STARRED_AT},\n      \t\t\t\t\t\t\t\t\tfirst: $fst,\n      \t\t\t\t\t\t\t\t\tlast: $lst,\n                        after: $aft,\n                        before: $bef) {\n      totalCount\n      pageInfo {\n        hasNextPage\n        endCursor\n        hasPreviousPage\n        startCursor\n      }\n      edges {\n        starredAt\n        node {\n          name\n          stargazerCount\n          primaryLanguage {\n            name\n            color\n          }\n        }\n      }\n    }\n  }\n}\n",
-#  "variables": {
-#    "fst": 3,
-#    "lst": null,
-#    "aft": null,
-#    "bef": null
-#  }
-#}

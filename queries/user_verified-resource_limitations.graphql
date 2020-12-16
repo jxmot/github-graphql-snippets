@@ -18,10 +18,3 @@ query {
     used
   }
 }
-
-# The following is POST-ready, it can be used as the body
-# in a POST operation. This can be used with Postman.
-#{
-#  "query": "query {\n  viewer {\n    login\n  }\n  rateLimit {\n    cost\n    limit\n    nodeCount\n    remaining\n    resetAt\n    used\n  }\n}"
-#}
-

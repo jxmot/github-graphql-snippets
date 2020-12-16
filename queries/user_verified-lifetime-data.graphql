@@ -32,9 +32,3 @@
     }
   }
 }
-
-# The following is POST-ready, it can be used as the body
-# in a POST operation. This can be used with Postman.
-# {
-#   "query": "{\n  viewer {\n    name\n    login\n    createdAt\n    issues(first: 1) {\n      totalCount\n    }\n    pullRequests(first: 1) {\n      totalCount\n    }\n    repositories(first: 1, ownerAffiliations: OWNER, isFork: false) {\n      totalCount\n    }\n    repositoriesContributedTo(first: 1) {\n      totalCount\n    }\n    contributionsCollection {\n      startedAt\n      endedAt\n      totalCommitContributions\n      restrictedContributionsCount\n      totalPullRequestContributions\n      totalIssueContributions\n      totalRepositoryContributions\n    }\n  }\n}\n"
-# }
