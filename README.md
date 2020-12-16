@@ -362,5 +362,5 @@ It has the following features :
 * The `*.graphql` files are automatically parsed and converted to a POST-able format.
 * After conversion the GraphQL statements can be sent to GitHub and the responses will be displayed.
 
-A README file can be viewed [here](./tools/README.md).
+A README file can be viewed [here](./tools).
 
