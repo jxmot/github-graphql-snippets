@@ -46,13 +46,24 @@ The files are plain text, with `\n`, `\r\n` or `\r` line endings. The format of 
 # Comments are optional, they're stripped out before conversion
 query
 {
+  # GrapQL query here
 }
 ```
 
 And if variables are used:
 
 ```
+# Comments are optional, they're stripped out before conversion
+query
+{
+  # GrapQL query here
+}
+{
+  "test":"this is a variable"
+}
 ```
+
+
 
 ## To Do (maybe)
 

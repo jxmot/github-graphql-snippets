@@ -97,12 +97,13 @@ Here's a simple query to start off with:
 File: **`/queries/user-lifetime-data.graphql`**
 
 ```
-# Get Contribution Years and Lifetime Data
+# Get Contribution Lifetime Data
 # 
 # The values returned by this query represent the totals for 
 # the lifetime of the user. 
+query($_login:String!)
 {
-  user(login: "jxmot") {
+  user(login: $_login) {
     name
     # Let's retreive a collection of the user's repositories
     contributionsCollection {
@@ -112,11 +113,11 @@ File: **`/queries/user-lifetime-data.graphql`**
       contributionYears
     }
     # the total number of repositories owned by the user, no forks are counted
-    repositories(first: 100, isFork: false, ownerAffiliations: OWNER) {
+    repositories(first: 1, isFork: false, ownerAffiliations: OWNER) {
       totalCount
     }
     # the total number of repositories NOT owned by the user that they contributed to
-    repositoriesContributedTo(first: 100) {
+    repositoriesContributedTo(first: 1) {
       totalCount
     }
     # the total number of pull requests created by the user
@@ -128,10 +129,16 @@ File: **`/queries/user-lifetime-data.graphql`**
       totalCount
     }
     # the total number of followers that the user has
-    followers {
+    followers(first: 1) {
       totalCount
     }
   }
+}
+
+# Variable(s): If using the GraphiQL app the following gets
+# placed in the "QUERY VARIABLES" pane. 
+{
+  "_login": "jxmot"
 }
 
 ```
