@@ -22,6 +22,9 @@
 #   Steps 6 - 9 can be repeated until `pageInfo.hasPreviousPage` 
 #   becomes `false`.
 #
+# NOTE: For details on pagination go to - 
+#       https://github.com/jxmot/github-graphql-snippets/tree/main/pagination
+#
 query($fst:Int, $lst:Int, $aft:String, $bef:String) {
   viewer {
     login
