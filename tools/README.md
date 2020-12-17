@@ -38,6 +38,14 @@ Next click the "POST GraphQL" button and the query/mutation will be POSTed to Gi
   <img src="../mdimg/ghgql_3.png" alt="" txt="" width="80%" style="border: 1px solid black;">
 </p>
 
+<br><br>
+
+If you haven't edited `` and saved it with *your* GitHub Personal Access Token then you will see the following:
+
+<p align="center">
+  <img src="../mdimg/ghgql_4.png" alt="" txt="" width="80%" style="border: 1px solid black;">
+</p>
+
 ### *.graphql File Format
 
 The files are plain text, with `\n`, `\r\n` or `\r` line endings. The format of the GraphQL statment should be:
@@ -62,11 +70,9 @@ query
   "test":"this is a variable"
 }
 ```
-
-
-
 ## To Do (maybe)
 
 * Add the ability to edit *variables*.
+* Handle pagination, if a multi-page response is recieved then display buttons to page forward and backward.
 * **TBD**
 
