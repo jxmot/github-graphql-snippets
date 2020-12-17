@@ -142,3 +142,21 @@ $(document).on('fileready', function(ev, content) {
 
     $(document).trigger('postready', gqlpost);
 });
+
+// intended to aid users of this repo, if the accsess
+// token hasn't been edited by them then this function
+// wlll return false
+function checkGQLAuth() {
+    // does it contain the placeholder?
+    if(ghauth.includes('xxxxx')) {
+        return false;
+    }
+    // is it long enough?
+    // NOTE: it seems that the length of 47 is typical
+    // of a proper auth key.
+    if(ghauth.length < 47) {
+        return false;
+    }
+    // all good, proceed...
+    return true;
+}
