@@ -4,7 +4,7 @@
 // this variable name uses the underscore in its 
 // name to avoid potential conflicts with other
 // code that might use 'debug' for its own purposes.
-const _debug = true;
+const _debug = false;
 
 // nothing fancy, just the basics...
 function consolelog(msg) {
