@@ -128,15 +128,17 @@ $(document).on('fileready', function(ev, content) {
     // prepare for POST-ing...
     var clean   = rmvComments(content);
 
+    // reset the brace counts
     obrace = 0;
     cbrace = 0;
     var gqlout  = splitQueryVars(clean);
 
+    // 
     var gqlpost = gqlToPOST(gqlout[0], gqlout[1]);
 
     // ready to POST!
-    console.log('\n\n');
-    console.log(gqlpost);
+    consolelog('\n\n');
+    consolelog(gqlpost);
 
     $(document).trigger('postready', gqlpost);
 });

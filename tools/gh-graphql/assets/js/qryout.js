@@ -41,7 +41,7 @@ function enablePosting() {
 
     $('#runbtn').on('click', function() {
         var po = document.getElementById('postout');
-        console.log(po.innerHTML);
+        consolelog(po.innerHTML);
         gqlPost(po.innerHTML, document.getElementById('post_reply'));
     });
 }

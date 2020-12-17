@@ -28,7 +28,7 @@ reader = new FileReader();
 reader.onload = fileLoadEnd;
 
 function dropHandler(ev) {
-    console.log('File(s) dropped');
+    consolelog('File(s) dropped');
 
     // Prevent default behavior (Prevent file from being opened)
     ev.preventDefault();
@@ -41,7 +41,7 @@ function dropHandler(ev) {
             // If dropped items aren't files, reject them
             if (ev.dataTransfer.items[0].kind === 'file') {
                 file = ev.dataTransfer.items[0].getAsFile();
-                console.log('dropped file name = ' + file.name);
+                consolelog('dropped file name = ' + file.name);
                 reader.readAsText(file);
             }
         }
@@ -50,7 +50,7 @@ function dropHandler(ev) {
 
 // Drag over handler
 function dragOverHandler(ev) {
-    console.log('File(s) in drop zone');
+    consolelog('File(s) in drop zone');
     ev.dataTransfer.dropEffect = 'move';
     // Prevent default behavior (Prevent file from being opened)
     ev.preventDefault();
@@ -59,7 +59,7 @@ function dragOverHandler(ev) {
 // Handler for when a file is dropped into
 // the target area.
 function noDragDrop(ev) {
-    console.log('you can\'t touch that');
+    consolelog('you can\'t touch that');
     // Prevent default behavior (Prevent file from being opened)
     ev.preventDefault();
 }
