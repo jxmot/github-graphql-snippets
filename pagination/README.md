@@ -1,5 +1,9 @@
 # GraphQL Pagination
 
+*Pagination* is the arrangement of a list of items. The entire list of items are broken done into smaller groups (*pages*) so the list is easier to navigate. In general the *pages* are the same size with the exception of the *last page*. It is possible that the last page may contain a smaller group of items as compare to the previouse pages.
+
+In this document I will retrieve a list of my *starred repositories*. I've starred over 200 so when I request a list of them they will be grouped into *pages*. The GitHub V4 API will proved a unique ID for each page. Navigation is accomplished by using those page IDs to navigate up or down in the list of starred repositories.
+
 ## Queries and Pagination
 
 It took me a bit to understand how *pagination* works under the GitHub's implementation of GraphQL. Honestly it isn't that difficult. But the available documentation does not seem to provide any *workable* examples or a very clear explanation.
@@ -85,3 +89,20 @@ To see how pagination works use these steps:
   becomes `false`.
 
 **NOTE**: You will need to have some starred repositories under your account. The minimum recommended for this demonstration is 12. If you have a lot of starred repos change the value used in `"fst"` and `"lst"` to a larger value. For example, if you had 100 starred repos you could change that value from `3` to `25`. That would give you 4 pages of 25 items.
+
+## Pagination, a graphical representation
+
+
+### Page Up
+
+<p align="center">
+  <img src="./pagination-up.png" alt="" txt="" width="90%">
+</p>
+
+### Page Down
+
+<p align="center">
+  <img src="./pagination-down.png" alt="" txt="" width="90%">
+</p>
+
+
