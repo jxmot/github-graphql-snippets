@@ -70,7 +70,7 @@ dz.addEventListener('dragover', dragOverHandler);
 dz.addEventListener('drop', dropHandler);
 
 // disallow poorly aimed droppings....
-//var nd = document.getElementById('nodrop');
-//nd.addEventListener('dragover', noDragDrop);
-//nd.addEventListener('drop', noDragDrop);
+var nd = document.getElementById('nodrop');
+nd.addEventListener('dragover', noDragDrop);
+nd.addEventListener('drop', noDragDrop);
 
