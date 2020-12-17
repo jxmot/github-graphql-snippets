@@ -24,7 +24,7 @@ function gqlPost(gql, respout) {
         xhr.setRequestHeader('Accept', 'application/vnd.github.bane-preview+json');
         xhr.setRequestHeader('Content-Type', 'application/graphql');
 
-        xhr.onreadystatechange = function() { // Call a function when the state changes.
+        xhr.onreadystatechange = function() { 
             if (this.readyState === XMLHttpRequest.DONE) {
                 if(this.status === 200) {
                     $(document).trigger('resprcvd', JSON.stringify(JSON.parse(this.response), null, 2));
