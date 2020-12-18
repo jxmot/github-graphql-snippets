@@ -40,7 +40,7 @@ Next click the "POST GraphQL" button and the query/mutation will be POSTed to Gi
 
 <br><br>
 
-If you haven't edited `` and saved it with *your* GitHub Personal Access Token then you will see the following:
+If you haven't edited `/tools/gh-grapql/assets/js/ghauth.js` and saved it with *your* GitHub Personal Access Token then you will see the following:
 
 <p align="center">
   <img src="../mdimg/ghgql_4.png" alt="" txt="" width="80%" style="border: 1px solid black;">
