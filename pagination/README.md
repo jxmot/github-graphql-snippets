@@ -71,7 +71,7 @@ Variables needed by the query, paste this into the *query variables* pane :
 <summary>
 Here is the reply to the query above:
 </summary>
-```
+<pre>
 {
   "data": {
     "viewer": {
@@ -124,7 +124,7 @@ Here is the reply to the query above:
     }
   }
 }
-```
+</pre>
 </details>
 
 
