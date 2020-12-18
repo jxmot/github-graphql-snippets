@@ -1,8 +1,8 @@
 # GraphQL Pagination
 
-*Pagination* is the arrangement of a list of items. The entire list of items are broken done into smaller groups (*pages*) so the list is easier to navigate. In general the *pages* are the same size with the exception of the *last page*. It is possible that the last page may contain a smaller group of items as compare to the previous pages.
+*Pagination* is the arrangement of a list of items. The entire list of items is broken done into smaller groups (*pages*) so the list is easier to navigate. In general the *pages* are the same size with the exception of the *last page*. It is possible that the last page may contain a smaller group of items as compared to the previous pages.
 
-In this document I will retrieve a list of my *starred repositories*. I've starred over 200 so when I request a list of them they will be grouped into *pages*. The GitHub V4 API will proved a unique ID for each page. Navigation is accomplished by using those page IDs to navigate up or down in the list of starred repositories.
+In this document I will retrieve a list of my *starred repositories*. I've starred over 200 of them so when I request a list they will be grouped into *pages*. The GitHub V4 API will proved a unique ID for each page. Navigation is accomplished by using those page IDs to navigate up or down in the list of starred repositories.
 
 # Queries and Pagination
 
