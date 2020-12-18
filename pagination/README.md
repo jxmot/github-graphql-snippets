@@ -1,6 +1,6 @@
 # GraphQL Pagination
 
-*Pagination* is the arrangement of a list of items. The entire list of items are broken done into smaller groups (*pages*) so the list is easier to navigate. In general the *pages* are the same size with the exception of the *last page*. It is possible that the last page may contain a smaller group of items as compare to the previouse pages.
+*Pagination* is the arrangement of a list of items. The entire list of items are broken done into smaller groups (*pages*) so the list is easier to navigate. In general the *pages* are the same size with the exception of the *last page*. It is possible that the last page may contain a smaller group of items as compare to the previous pages.
 
 In this document I will retrieve a list of my *starred repositories*. I've starred over 200 so when I request a list of them they will be grouped into *pages*. The GitHub V4 API will proved a unique ID for each page. Navigation is accomplished by using those page IDs to navigate up or down in the list of starred repositories.
 
@@ -124,12 +124,13 @@ Variables needed by the query, paste this into the *query variables* pane :
     }
   }
 }
+
 </pre>
 </details>
 
 To see how pagination works use these steps:
 
-  1) Run the query with the data as shown below
+  1) Run the query with the data as shown above
   2) After the successful query, copy the string from the result at `pageInfo.endCursor` into the `aft` data item
   3) Run the query again
   4) The next "page" will be returned
@@ -146,20 +147,19 @@ To see how pagination works use these steps:
 
   Steps 6 - 9 can be repeated until `pageInfo.hasPreviousPage` becomes `false`.
 
-**NOTE**: You will need to have some starred repositories under your account. The minimum recommended for this demonstration is 12. If you have a lot of starred repos change the value used in `"fst"` and `"lst"` to a larger value. For example, if you had 100 starred repos you could change that value from `3` to `25`. That would give you 4 pages of 25 items.
+**NOTE**: You will need to have some starred repositories under your account. The minimum recommended for this demonstration is 12. If you have a lot of starred repos change the value used in **`fst`** and **`lst`** to a larger value. For example, if you had 100 starred repos you could change that value from `3` to `25`. That would give you 4 pages of 25 items.
 
 # Pagination, a graphical representation
 
-FFF2CB
+*Note: the* `pageInfo.endCursor` *values below have be dramatically shortened tb be easier to follow in the subsequent diagrams*. 
 
 First let's take a look at the result of requesting the *first page*:
-
 
 <p align="center">
   <img src="./single-page.png" alt="" txt="" width="60%">
 </p>
 
-The result of the first query will give us <img src="./endcursor.png" alt="" txt="" width="">
+The result of the first query will give us <img src="./endcursor.png" alt="" txt="" width=""> in `pageInfo.endCursor`. That value will be used to navigate *up* to the next page of starred repositories.
 
 ## Page Up
 
