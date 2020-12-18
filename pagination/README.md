@@ -22,7 +22,7 @@ First, open a GraphQL *explorer*. This example should also work with GitHub's [G
 
 The query:
 
-```
+<pre>
 query($fst:Int, $lst:Int, $aft:String, $bef:String) {
   viewer {
     login
@@ -32,14 +32,14 @@ query($fst:Int, $lst:Int, $aft:String, $bef:String) {
                         last: $lst,
                         after: $aft,
                         before: $bef) {
-      totalCount
+      totalCount<strong>
       # This will be necessary for navigating between the pages.
       pageInfo {
         hasNextPage
         endCursor
         hasPreviousPage
         startCursor
-      }
+      }</strong>
       edges {
         starredAt
         node {
@@ -54,7 +54,7 @@ query($fst:Int, $lst:Int, $aft:String, $bef:String) {
     }
   }
 }
-```
+</pre>
 
 Variables needed by the query, paste this into the *query variables* pane :
 
@@ -69,7 +69,7 @@ Variables needed by the query, paste this into the *query variables* pane :
 
 <details>
 <summary>
-Here is the reply to the query above:
+<strong>Here is the reply to the query above:</strong>(<i>click to expand</i>)
 </summary>
 <pre>
 {
@@ -78,13 +78,13 @@ Here is the reply to the query above:
       "login": "jxmot",
       "name": "J.Motyl",
       "starredRepositories": {
-        "totalCount": 279,
+        "totalCount": 279,<strong>
         "pageInfo": {
           "hasNextPage": true,
           "endCursor": "Y3Vyc29yOnYyOpK5MjAyMC0xMi0xNFQxMTo0Mjo0My0wNjowMM4O_J02",
           "hasPreviousPage": false,
           "startCursor": "Y3Vyc29yOnYyOpK5MjAyMC0xMi0xNlQxMzoyODoyMC0wNjowMM4PAfB-"
-        },
+        },</strong>
         "edges": [
           {
             "starredAt": "2020-12-16T19:28:20Z",
@@ -127,7 +127,6 @@ Here is the reply to the query above:
 </pre>
 </details>
 
-
 To see how pagination works use these steps:
 
   1) Run the query with the data as shown below
@@ -139,9 +138,9 @@ To see how pagination works use these steps:
   becomes `false`.
 
   5) To go to the previous page copy the string from the result at `pageInfo.startCursor` into the `bef` data item
-  6) Set `aft` to `null`
-  7) Set `fst` to `null`
-  8) Set `lst` to 3
+  6) Set **`aft`** to `null`
+  7) Set **`fst`** to `null`
+  8) Set **`lst`** to 3
   9) Run the query again
  10) The previous "page" will be returned
 
