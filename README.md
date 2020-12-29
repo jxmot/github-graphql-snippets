@@ -288,3 +288,5 @@ It has the following features :
 
 A README file can be viewed [here](./tools).
 
+---
+<img src="http://webexperiment.info/extcounter/mdcount.php?id=router-log-monitor">
