@@ -196,7 +196,7 @@ And here is the result of the query:
 
 ### Queries and Pagination
 
-This described in detail [here](./pagination/README.md)
+This is described in detail [here](./pagination/README.md)
 
 ## Mutations
 
